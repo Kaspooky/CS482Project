@@ -4,6 +4,9 @@
 
 https://opencv.github.io/cvat/docs/administration/basics/installation/#windows-10
 
+### Login Screen for Kacper Danilowicz:
+![alt text](https://github.com/Kaspooky/CS482Project/blob/milestone-1/assets/Kaspooky-login.png)
+
 ### Steps Installation Steps Followed by Jack Trimboli:
 
 https://opencv.github.io/cvat/docs/administration/basics/installation/#mac-os-mojave
