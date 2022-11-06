@@ -9,6 +9,7 @@ headerlist = {
 def get_page(url):
     print('requesting webpage...')
     result = requests.get(url, headers=headerlist, verify=True, timeout=10)
+
     if(result.status_code == 200):
         print("Request returned status 200")
         return result.content
@@ -17,18 +18,25 @@ def get_page(url):
 
 
 def soupify(url):
+    # get the page using the request library
     src = get_page(url)
     print('webpage retrieved.')
+
+    # use beautifulSoup + the lxml html parser to make the data usable
     soup = BeautifulSoup(src, 'lxml')
+
+    # return all of the img tags found by beautifulSoup
     return soup.find_all("img")
 
 
 def get_product_urls(images, res):
     for image in images:
+        # for each image, verify that it's an image of a product, if it is, append it to our list
         if image['src'].find('productImages') != -1:
             res.append(image['src'])
 
 
+# home depot urls
 urls = [
     'https://www.homedepot.com/b/Bath-Toilets-Two-Piece-Toilets/N-5yc1vZcb8n',
     'https://www.homedepot.com/b/Bath-Bathroom-Vanities-Bathroom-Vanity-Tops/N-5yc1vZcfvf',
@@ -45,9 +53,16 @@ urls = [
 
 result = []
 idx = 0
+
+# loop through each homedepot url
 for url in urls:
+    # add a new subarray for each url
     result.append([])
+
+    # get the image tags using beautifulSoup + requests
     images = soupify(url)
+
+    # extract the urls for ONLY products
     get_product_urls(images, result[idx])
     idx += 1
 
