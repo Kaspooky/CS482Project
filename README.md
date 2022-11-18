@@ -1,5 +1,7 @@
 # CS482Project
 
+Jack Trimboli and Kacper Danilowicz
+
 ### CVAT Installation Steps Followed by Kacper Danilowicz:
 
 https://opencv.github.io/cvat/docs/administration/basics/installation/#windows-10
